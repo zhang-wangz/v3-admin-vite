@@ -36,12 +36,13 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       strictPort: false,
       /** 接口代理 */
       proxy: {
-        "/api/v1": {
-          target: "https://mock.mengxuegu.com/mock/63218b5fb4c53348ed2bc212/api/v1",
+        "/v1": {
+          // target: "https://mock.mengxuegu.com/mock/63218b5fb4c53348ed2bc212/api/v1",
+          target: "http://localhost:8800/v1",
           ws: true,
           /** 是否允许跨域 */
           changeOrigin: true,
-          rewrite: (path) => path.replace("/api/v1", "")
+          rewrite: (path) => path.replace("/v1", "")
         }
       }
     },
